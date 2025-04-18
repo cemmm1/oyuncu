@@ -1,408 +1,464 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Adventure Game</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .bounce-animation {
-            animation: bounce 1s infinite;
-        }
-        .flip-scale {
-            transition: all 0.3s ease;
-        }
-        .flip-scale:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-        .progress-bar {
-            transition: width 0.5s ease;
-        }
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            opacity: 0;
-        }
-    </style>
+  <!-- Site made with Mobirise Website Builder v6.0.1, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v6.0.1, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/mbr.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Home</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=5IgxgN"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=5IgxgN" type="text/css">
+
+  
+  
+  
 </head>
-<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen font-sans">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
-                Math Adventure
-            </h1>
-            <p class="text-gray-600 text-lg">Test your math skills and climb the leaderboard!</p>
-        </header>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu3 cid-uIKwJ7Bf73" once="menu" id="menu03-0">
+	
 
-        <!-- Game Container -->
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-xl overflow-hidden p-6 mb-8 transition-all duration-300 hover:shadow-2xl">
-            <!-- Game Info -->
-            <div class="flex justify-between items-center mb-6">
-                <div class="flex items-center">
-                    <div class="bg-blue-100 p-2 rounded-full mr-3">
-                        <i class="fas fa-star text-yellow-500 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500">Score</p>
-                        <p class="font-bold text-xl" id="score">0</p>
-                    </div>
-                </div>
-                <div class="flex items-center">
-                    <div class="bg-purple-100 p-2 rounded-full mr-3">
-                        <i class="fas fa-clock text-purple-600 text-xl"></i>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500">Time</p>
-                        <p class="font-bold text-xl" id="time">30</p>
-                    </div>
-                </div>
-            </div>
+	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+		<div class="container">
+			<div class="navbar-brand">
+				<span class="navbar-logo">
+					<a href="https://mobiri.se">
+						<img src="assets/images/mbr.png" alt="Mobirise Website Builder" style="height: 4rem;">
+					</a>
+				</span>
+				
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://mobiri.se">Oyuncu Sayımız</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black show display-4" href="https://mobiri.se" aria-expanded="false">ödemeler</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://mobiri.se">SUNUCULAR&nbsp;</a>
+					</li></ul>
+				<div class="icons-menu">
+					<a class="iconfont-wrapper" href="https://mobiri.se">
+						<span class="p-2 mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
+					</a>
+					<a class="iconfont-wrapper" href="https://mobiri.se">
+						<span class="p-2 mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
+					</a>
+					<a class="iconfont-wrapper" href="https://mobiri.se">
+						<span class="p-2 mbr-iconfont mobi-mbri-map-pin mobi-mbri"></span>
+					</a>
+					
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+</section>
 
-            <!-- Progress Bar -->
-            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
-                <div id="progress" class="progress-bar bg-gradient-to-r from-green-400 to-blue-500 h-2.5 rounded-full" style="width: 100%"></div>
-            </div>
+<section data-bs-version="5.1" class="header12 cid-uIKwO7SEmI" id="header12-1">
+  
+  
 
-            <!-- Question -->
-            <div class="text-center mb-8">
-                <div id="question" class="text-4xl font-bold mb-4 text-gray-800">
-                    5 + 3 = ?
-                </div>
-                <div class="text-sm text-gray-500">Choose the correct answer</div>
-            </div>
-
-            <!-- Options -->
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <button class="option-btn flip-scale bg-blue-100 hover:bg-blue-200 text-blue-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
-                    8
-                </button>
-                <button class="option-btn flip-scale bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
-                    7
-                </button>
-                <button class="option-btn flip-scale bg-green-100 hover:bg-green-200 text-green-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
-                    9
-                </button>
-                <button class="option-btn flip-scale bg-red-100 hover:bg-red-200 text-red-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
-                    6
-                </button>
-            </div>
-
-            <!-- Controls -->
-            <div class="flex justify-center">
-                <button id="startBtn" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-                    Start Game
-                </button>
-            </div>
+  <div class="text-center container">
+    <div class="row mb-4 justify-content-center">
+      <div class="col-12 col-md-8">
+        <img class="w-100" src="assets/images/mbr-2.png" alt="Mobirise Website Builder">
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-12 content-head">
+        <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1"><strong>OYUNYERİ&nbsp;</strong></h1>
+        <p class="mbr-text mbr-fonts-style mb-4 display-7">oyun sunucularımızda keyifli zaman geçirmeniz dileğiyle :)</p>
+        <div class="mbr-section-btn mt-4">
+          <a class="btn btn-primary display-7" href="https://mobiri.se">Download now</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Feedback Modal -->
-        <div id="feedbackModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
-            <div class="bg-white rounded-xl p-8 max-w-sm w-full text-center transform transition-all duration-300 scale-95 opacity-0">
-                <div id="feedbackIcon" class="text-6xl mb-4"></div>
-                <h2 id="feedbackTitle" class="text-2xl font-bold mb-2"></h2>
-                <p id="feedbackText" class="text-gray-600 mb-4"></p>
-                <button id="continueBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
-                    Continue
-                </button>
-            </div>
+<section data-bs-version="5.1" class="features15 cid-uIKwPwWCMr" id="features015-2">
+	
+
+	
+	
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 content-head">
+				<div class="mbr-section-head mb-5">
+					<h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+						<strong>Features</strong>
+					</h4>
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="item features-without-image col-12 col-lg-4 active">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop1.jpg" alt="Mobirise Website Builder">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>ip bloklarımız&nbsp;</strong></h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							<div><br></div>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop2.jpg" alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Responsive design</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Websites look great on all devices.
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop3.jpg" alt="Mobirise Website Builder" data-bs-slide-to="2" data-slide-to="2">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Blogging</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Write and publish blog posts, share your thoughts.
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/mbr-1.png" alt="Mobirise Website Builder" data-slide-to="3" data-bs-slide-to="3">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7"><strong>isteğiniz skinler&nbsp;</strong></h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Websites optimized for search engines.
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop6.jpg" alt="Mobirise Website Builder" data-bs-slide-to="4" data-slide-to="4">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Analytics</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Track website traffic and user behavior.
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop5.jpg" alt="Mobirise Website Builder" data-slide-to="5" data-bs-slide-to="5">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>eCommerce</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Create online stores easily, without coding knowledge.
+						</h5>
+					</div>
+				</div>
+			</div>
+
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop3.jpg" alt="Mobirise Website Builder" data-bs-slide-to="6" data-slide-to="6">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Large community</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Active community of users and developers.
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop1.jpg" alt="Mobirise Website Builder" data-bs-slide-to="7" data-slide-to="7">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Security</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+						  Websites built with security in mind.</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-lg-4">
+				<div class="item-wrapper">
+					<div class="img-wrapper">
+						<img src="assets/images/shop2.jpg" alt="Mobirise Website Builder" data-bs-slide-to="8" data-slide-to="8">
+					</div>
+					<div class="card-box">
+						<h4 class="card-title mbr-fonts-style mb-0 display-7">
+							<strong>Extensions</strong>
+						</h4>
+						<h5 class="card-text mbr-fonts-style mt-3 display-7">
+							Add new features and functionality.
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section data-bs-version="5.1" class="news02 cid-uIKwTaZ7vT" id="news02-3">
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 mb-5 content-head">
+        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+          <strong>Upcoming events</strong>
+        </h3>
+        <h5 class="mbr-section-subtitle mbr-fonts-style align-center mb-0 mt-4 display-7">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </h5>
+      </div>
+    </div>
+    <div class="row justify-content-center item features-without-image mb-4 active">
+      <div class="col-12 col-lg-3">
+        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-7">
+          May 17-18, 2025
+        </h5>
+
+      </div>
+      <div class="col-12 col-lg-3">
+        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">
+          <strong>Golden Hour Mastery</strong>
+        </h6>
+      </div>
+      <div class="col-12 col-lg-6 item-wrapper">
+        <p class="mbr-text mbr-fonts-style mt-0 display-7">
+          Unveil the enchanting allure of the golden hour in this comprehensive workshop. Learn advanced techniques to
+          create breathtaking photos as you harness the magical light of sunrise and sunset. Explore composition,
+          lighting, and post-processing tricks that will elevate your photography skills.
+        </p>
+        <div class="mbr-section-btn">
+          <a class="btn btn-white display-7" href="https://mobiri.se">Learn more</a>
         </div>
+      </div>
 
-        <!-- Game Over Modal -->
-        <div id="gameOverModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
-            <div class="bg-white rounded-xl p-8 max-w-sm w-full text-center transform transition-all duration-300 scale-95 opacity-0">
-                <div class="text-6xl mb-4 text-yellow-500">
-                    <i class="fas fa-trophy"></i>
+    </div>
+    <div class="row justify-content-center item features-without-image mb-4">
+      <div class="col-12 col-lg-3">
+        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-7">
+          March 15, 2025
+        </h5>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">
+          <strong>Photography Exhibition</strong>
+        </h6>
+      </div>
+      <div class="col-12 col-lg-6 item-wrapper">
+        <p class="mbr-text mbr-fonts-style mt-0 display-7">
+          Step into a world of captivating imagery at our Photography Exhibition. Featuring the work of local artists,
+          this showcase weaves a rich tapestry of creative perspectives, capturing life's moments and emotions in
+          breathtaking detail. Immerse yourself in the beauty of visual storytelling and artistic expression.
+        </p>
+        <div class="mbr-section-btn">
+          <a class="btn btn-white display-7" href="https://mobiri.se">
+            Learn more
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="row justify-content-center item features-without-image mb-4">
+      <div class="col-12 col-lg-3">
+        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-7">
+          March 1, 2025
+        </h5>
+      </div>
+      <div class="col-12 col-lg-3">
+        <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">
+          <strong>Outdoor Workshop</strong>
+        </h6>
+      </div>
+      <div class="col-12 col-lg-6 item-wrapper">
+        <p class="mbr-text mbr-fonts-style mt-0 display-7">
+          Join us on a photographic journey at our Outdoor Photography Workshop. Whether you're a beginner or a seasoned
+          enthusiast, we'll show you how to embrace nature's beauty through your lens. Our experienced photographers
+          will be your guides, making this workshop a real outdoor adventure for your creativity.
+        </p>
+        <div class="mbr-section-btn">
+          <a class="btn btn-white display-7" href="https://mobiri.se">
+            Learn more
+          </a>
+          </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="news06 cid-uIKwWk35cN" id="news06-4">
+  
+
+  
+  
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 mb-5 content-head">
+        <h3 class="mbr-fonts-style align-center mb-0 mbr-section-maintitle display-2">
+          <strong>Our events</strong>
+        </h3>
+        
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center item features-image">
+      <div class="col-12 ">
+        <div class="item-wrapper">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+              <img class="w-100" src="assets/images/6.jpg" alt="Mobirise Website Builder">
+            </div>
+            <div class="col-12 col-lg col-md-12">
+              <div class="text-wrapper align-left">
+                <h5 class="mbr-section-title mbr-fonts-style mb-3 display-5">
+                  <strong>Portrait Perfection Workshop</strong>
+                </h5>
+                <p class="price mbr-fonts-style mb-3 display-7">
+                  July 12-13, 2025
+                </p>
+                <p class="mbr-text mbr-fonts-style mb-3 display-7">
+                  Elevate your portrait photography to new heights. From candid street shots to controlled studio
+                  setups, you'll master the art of capturing compelling portraits.
+                </p>
+                <div class="mbr-section-btn mt-3">
+                  <a class="btn btn-lg btn-white display-7" href="https://mobiri.se">
+                    Learn more
+                  </a>
                 </div>
-                <h2 class="text-2xl font-bold mb-2">Game Over!</h2>
-                <p class="text-gray-600 mb-2">Your final score:</p>
-                <p id="finalScore" class="text-4xl font-bold text-blue-600 mb-4">0</p>
-                <div class="flex justify-center space-x-4">
-                    <button id="restartBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
-                        Play Again
-                    </button>
-                    <button id="shareBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
-                        <i class="fas fa-share-alt mr-2"></i>Share
-                    </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center item features-image">
+      <div class="col-12">
+        <div class="item-wrapper">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-6 image-wrapper">
+              <img class="w-100" src="assets/images/10.jpg" alt="Mobirise Website Builder">
+            </div>
+            <div class="col-12 col-lg col-md-12">
+              <div class="text-wrapper align-left">
+                <h5 class="mbr-section-title mbr-fonts-style mb-3 display-5">
+                  <strong>Photography Exhibition</strong>
+                </h5>
+                <p class="price mbr-fonts-style mb-3 display-7">
+                  March 15, 2025
+                </p>
+                <p class="mbr-text mbr-fonts-style mb-3 display-7">
+                  Featuring the work of local artists, this showcase weaves a rich tapestry of creative perspectives, capturing life's moments and emotions in breathtaking detail. Immerse yourself in the beauty of visual storytelling and artistic expression.
+                </p>
+                <div class="mbr-section-btn mt-3">
+                  <a class="btn btn-lg btn-white display-7" href="https://mobiri.se">Learn more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="news07 cid-uIKwXDcjPB" id="news07-5">
+    
+    <div class="container">
+        <div class="col-12 mb-5 content-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Upcoming events with images</strong>
+            </h3>
+            
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-12 col-lg-8">
+                <div class="item features-without-image col-12 active">
+                    <div class="item-wrapper card-wrapper">
+                        <div class="card text-content">
+                            <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                                <strong>Golden Hour Mastery</strong>
+                            </h5>
+                            <h6 class="mbr-card-subtitle mbr-fonts-style mt-0 mb-3 display-7">
+                                May 17-18, 2025
+                            </h6>
+                            <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">
+                                Unveil the enchanting allure of the golden hour in this comprehensive workshop.
+                                Learn advanced techniques to create breathtaking photos as you harness the magical light
+                                of sunrise and sunset. Explore composition, lighting, and post-processing tricks that will elevate your
+                                photography skills.
+                            </p>
+                            <div class="mbr-section-btn">
+                                <a class="btn btn-white display-7" href="https://mobiri.se">
+                                    Learn more</a>
+                            </div>
+                        </div>
+                        <div class="image-wrapper d-flex justify-content-center">
+                            <img src="assets/images/11.jpg" alt="Mobirise Website Builder" data-slide-to="1" data-bs-slide-to="1">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Game variables
-        let score = 0;
-        let timeLeft = 30;
-        let timer;
-        let currentQuestion = {};
-        let gameActive = false;
-        let correctAnswer;
-
-        // DOM elements
-        const scoreElement = document.getElementById('score');
-        const timeElement = document.getElementById('time');
-        const questionElement = document.getElementById('question');
-        const optionButtons = document.querySelectorAll('.option-btn');
-        const startBtn = document.getElementById('startBtn');
-        const progressBar = document.getElementById('progress');
-        const feedbackModal = document.getElementById('feedbackModal');
-        const feedbackIcon = document.getElementById('feedbackIcon');
-        const feedbackTitle = document.getElementById('feedbackTitle');
-        const feedbackText = document.getElementById('feedbackText');
-        const continueBtn = document.getElementById('continueBtn');
-        const gameOverModal = document.getElementById('gameOverModal');
-        const finalScoreElement = document.getElementById('finalScore');
-        const restartBtn = document.getElementById('restartBtn');
-        const shareBtn = document.getElementById('shareBtn');
-
-        // Event listeners
-        startBtn.addEventListener('click', startGame);
-        optionButtons.forEach(button => {
-            button.addEventListener('click', () => selectAnswer(button));
-        });
-        continueBtn.addEventListener('click', nextQuestion);
-        restartBtn.addEventListener('click', restartGame);
-        shareBtn.addEventListener('click', shareScore);
-
-        // Generate a random math question
-        function generateQuestion() {
-            const num1 = Math.floor(Math.random() * 20) + 1;
-            const num2 = Math.floor(Math.random() * 20) + 1;
-            const operation = Math.random() > 0.5 ? '+' : '-';
-            
-            let question, answer;
-            
-            if (operation === '+') {
-                question = `${num1} + ${num2} = ?`;
-                answer = num1 + num2;
-            } else {
-                // Ensure we don't get negative answers
-                const larger = Math.max(num1, num2);
-                const smaller = Math.min(num1, num2);
-                question = `${larger} - ${smaller} = ?`;
-                answer = larger - smaller;
-            }
-            
-            // Generate options
-            const options = [answer];
-            while (options.length < 4) {
-                const randomOption = answer + Math.floor(Math.random() * 5) - 2;
-                if (randomOption !== answer && !options.includes(randomOption) && randomOption > 0) {
-                    options.push(randomOption);
-                }
-            }
-            
-            // Shuffle options
-            options.sort(() => Math.random() - 0.5);
-            
-            return {
-                question,
-                answer,
-                options
-            };
-        }
-
-        // Display the question and options
-        function displayQuestion() {
-            currentQuestion = generateQuestion();
-            questionElement.textContent = currentQuestion.question;
-            
-            optionButtons.forEach((button, index) => {
-                button.textContent = currentQuestion.options[index];
-                button.disabled = false;
-                button.classList.remove('bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
-                button.classList.add('bg-blue-100', 'text-blue-800', 'bg-purple-100', 'text-purple-800', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
-            });
-        }
-
-        // Start the game
-        function startGame() {
-            score = 0;
-            timeLeft = 30;
-            gameActive = true;
-            
-            scoreElement.textContent = score;
-            timeElement.textContent = timeLeft;
-            startBtn.textContent = 'Playing...';
-            startBtn.disabled = true;
-            
-            displayQuestion();
-            startTimer();
-        }
-
-        // Start the countdown timer
-        function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(() => {
-                timeLeft--;
-                timeElement.textContent = timeLeft;
-                progressBar.style.width = `${(timeLeft / 30) * 100}%`;
-                
-                // Change color based on time left
-                if (timeLeft <= 10) {
-                    progressBar.classList.remove('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
-                    progressBar.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
-                    timeElement.classList.add('text-red-500');
-                } else {
-                    progressBar.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
-                    progressBar.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
-                    timeElement.classList.remove('text-red-500');
-                }
-                
-                if (timeLeft <= 0) {
-                    endGame();
-                }
-            }, 1000);
-        }
-
-        // Handle answer selection
-        function selectAnswer(selectedButton) {
-            if (!gameActive) return;
-            
-            const selectedAnswer = parseInt(selectedButton.textContent);
-            const isCorrect = selectedAnswer === currentQuestion.answer;
-            
-            // Disable all buttons
-            optionButtons.forEach(button => {
-                button.disabled = true;
-            });
-            
-            // Highlight correct and incorrect answers
-            optionButtons.forEach(button => {
-                const buttonAnswer = parseInt(button.textContent);
-                if (buttonAnswer === currentQuestion.answer) {
-                    button.classList.remove('bg-green-100', 'text-green-800');
-                    button.classList.add('bg-green-300', 'text-green-900');
-                } else if (button === selectedButton && !isCorrect) {
-                    button.classList.remove('bg-red-100', 'text-red-800');
-                    button.classList.add('bg-red-300', 'text-red-900');
-                }
-            });
-            
-            // Update score and show feedback
-            if (isCorrect) {
-                score += 10;
-                scoreElement.textContent = score;
-                showFeedback(true);
-            } else {
-                showFeedback(false);
-            }
-        }
-
-        // Show feedback modal
-        function showFeedback(isCorrect) {
-            if (isCorrect) {
-                feedbackIcon.innerHTML = '<i class="fas fa-check-circle text-green-500"></i>';
-                feedbackTitle.textContent = 'Correct!';
-                feedbackText.textContent = 'Great job! Keep it up!';
-                createConfetti();
-            } else {
-                feedbackIcon.innerHTML = '<i class="fas fa-times-circle text-red-500"></i>';
-                feedbackTitle.textContent = 'Incorrect';
-                feedbackText.textContent = `The correct answer was ${currentQuestion.answer}.`;
-            }
-            
-            feedbackModal.classList.remove('hidden');
-            setTimeout(() => {
-                feedbackModal.querySelector('.bg-white').classList.remove('scale-95', 'opacity-0');
-                feedbackModal.querySelector('.bg-white').classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        // Create confetti effect
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                document.body.appendChild(confetti);
-                
-                // Animate confetti
-                setTimeout(() => {
-                    confetti.style.opacity = '1';
-                    confetti.style.transform = `translateY(${Math.random() * 200 - 100}px) translateX(${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`;
-                    confetti.style.transition = `all ${Math.random() * 2 + 1}s ease-out`;
-                    
-                    // Remove confetti after animation
-                    setTimeout(() => {
-                        confetti.style.opacity = '0';
-                        setTimeout(() => {
-                            confetti.remove();
-                        }, 1000);
-                    }, 1000);
-                }, 10);
-            }
-        }
-
-        // Move to next question
-        function nextQuestion() {
-            feedbackModal.querySelector('.bg-white').classList.remove('scale-100', 'opacity-100');
-            feedbackModal.querySelector('.bg-white').classList.add('scale-95', 'opacity-0');
-            
-            setTimeout(() => {
-                feedbackModal.classList.add('hidden');
-                displayQuestion();
-            }, 300);
-        }
-
-        // End the game
-        function endGame() {
-            clearInterval(timer);
-            gameActive = false;
-            finalScoreElement.textContent = score;
-            
-            gameOverModal.classList.remove('hidden');
-            setTimeout(() => {
-                gameOverModal.querySelector('.bg-white').classList.remove('scale-95', 'opacity-0');
-                gameOverModal.querySelector('.bg-white').classList.add('scale-100', 'opacity-100');
-            }, 10);
-            
-            // Reset UI
-            startBtn.textContent = 'Start Game';
-            startBtn.disabled = false;
-            timeElement.textContent = '30';
-            progressBar.style.width = '100%';
-            progressBar.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
-            progressBar.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
-            timeElement.classList.remove('text-red-500');
-        }
-
-        // Restart the game
-        function restartGame() {
-            gameOverModal.querySelector('.bg-white').classList.remove('scale-100', 'opacity-100');
-            gameOverModal.querySelector('.bg-white').classList.add('scale-95', 'opacity-0');
-            
-            setTimeout(() => {
-                gameOverModal.classList.add('hidden');
-                startGame();
-            }, 300);
-        }
-
-        // Share score
-        function shareScore() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Math Adventure Game',
-                    text: `I scored ${score} points in Math Adventure! Can you beat me?`,
-                    url: window.location.href
-                }).catch(err => {
-                    console.log('Error sharing:', err);
-                });
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                const shareUrl = `https://twitter.com/intent/tweet?text=I scored ${score} points in Math Adventure! Can you beat me?&url=${encodeURIComponent(window.location.href)}`;
-                window.open(shareUrl, '_blank');
-            }
-        }
-    </script>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/html-builder.html">HTML Website Maker</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/theme/js/script.js"></script>  
+  
+  
 </body>
 </html>
