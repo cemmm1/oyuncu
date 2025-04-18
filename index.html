@@ -1,12 +1,408 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Page Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Adventure Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .bounce-animation {
+            animation: bounce 1s infinite;
+        }
+        .flip-scale {
+            transition: all 0.3s ease;
+        }
+        .flip-scale:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 mb-2">
+                Math Adventure
+            </h1>
+            <p class="text-gray-600 text-lg">Test your math skills and climb the leaderboard!</p>
+        </header>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+        <!-- Game Container -->
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-xl overflow-hidden p-6 mb-8 transition-all duration-300 hover:shadow-2xl">
+            <!-- Game Info -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center">
+                    <div class="bg-blue-100 p-2 rounded-full mr-3">
+                        <i class="fas fa-star text-yellow-500 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Score</p>
+                        <p class="font-bold text-xl" id="score">0</p>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="bg-purple-100 p-2 rounded-full mr-3">
+                        <i class="fas fa-clock text-purple-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">Time</p>
+                        <p class="font-bold text-xl" id="time">30</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
+                <div id="progress" class="progress-bar bg-gradient-to-r from-green-400 to-blue-500 h-2.5 rounded-full" style="width: 100%"></div>
+            </div>
+
+            <!-- Question -->
+            <div class="text-center mb-8">
+                <div id="question" class="text-4xl font-bold mb-4 text-gray-800">
+                    5 + 3 = ?
+                </div>
+                <div class="text-sm text-gray-500">Choose the correct answer</div>
+            </div>
+
+            <!-- Options -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <button class="option-btn flip-scale bg-blue-100 hover:bg-blue-200 text-blue-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
+                    8
+                </button>
+                <button class="option-btn flip-scale bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
+                    7
+                </button>
+                <button class="option-btn flip-scale bg-green-100 hover:bg-green-200 text-green-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
+                    9
+                </button>
+                <button class="option-btn flip-scale bg-red-100 hover:bg-red-200 text-red-800 font-bold py-4 px-4 rounded-lg transition-all duration-200">
+                    6
+                </button>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex justify-center">
+                <button id="startBtn" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    Start Game
+                </button>
+            </div>
+        </div>
+
+        <!-- Feedback Modal -->
+        <div id="feedbackModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+            <div class="bg-white rounded-xl p-8 max-w-sm w-full text-center transform transition-all duration-300 scale-95 opacity-0">
+                <div id="feedbackIcon" class="text-6xl mb-4"></div>
+                <h2 id="feedbackTitle" class="text-2xl font-bold mb-2"></h2>
+                <p id="feedbackText" class="text-gray-600 mb-4"></p>
+                <button id="continueBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
+                    Continue
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+            <div class="bg-white rounded-xl p-8 max-w-sm w-full text-center transform transition-all duration-300 scale-95 opacity-0">
+                <div class="text-6xl mb-4 text-yellow-500">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2 class="text-2xl font-bold mb-2">Game Over!</h2>
+                <p class="text-gray-600 mb-2">Your final score:</p>
+                <p id="finalScore" class="text-4xl font-bold text-blue-600 mb-4">0</p>
+                <div class="flex justify-center space-x-4">
+                    <button id="restartBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
+                        Play Again
+                    </button>
+                    <button id="shareBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-full transition-all duration-200">
+                        <i class="fas fa-share-alt mr-2"></i>Share
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game variables
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+        let currentQuestion = {};
+        let gameActive = false;
+        let correctAnswer;
+
+        // DOM elements
+        const scoreElement = document.getElementById('score');
+        const timeElement = document.getElementById('time');
+        const questionElement = document.getElementById('question');
+        const optionButtons = document.querySelectorAll('.option-btn');
+        const startBtn = document.getElementById('startBtn');
+        const progressBar = document.getElementById('progress');
+        const feedbackModal = document.getElementById('feedbackModal');
+        const feedbackIcon = document.getElementById('feedbackIcon');
+        const feedbackTitle = document.getElementById('feedbackTitle');
+        const feedbackText = document.getElementById('feedbackText');
+        const continueBtn = document.getElementById('continueBtn');
+        const gameOverModal = document.getElementById('gameOverModal');
+        const finalScoreElement = document.getElementById('finalScore');
+        const restartBtn = document.getElementById('restartBtn');
+        const shareBtn = document.getElementById('shareBtn');
+
+        // Event listeners
+        startBtn.addEventListener('click', startGame);
+        optionButtons.forEach(button => {
+            button.addEventListener('click', () => selectAnswer(button));
+        });
+        continueBtn.addEventListener('click', nextQuestion);
+        restartBtn.addEventListener('click', restartGame);
+        shareBtn.addEventListener('click', shareScore);
+
+        // Generate a random math question
+        function generateQuestion() {
+            const num1 = Math.floor(Math.random() * 20) + 1;
+            const num2 = Math.floor(Math.random() * 20) + 1;
+            const operation = Math.random() > 0.5 ? '+' : '-';
+            
+            let question, answer;
+            
+            if (operation === '+') {
+                question = `${num1} + ${num2} = ?`;
+                answer = num1 + num2;
+            } else {
+                // Ensure we don't get negative answers
+                const larger = Math.max(num1, num2);
+                const smaller = Math.min(num1, num2);
+                question = `${larger} - ${smaller} = ?`;
+                answer = larger - smaller;
+            }
+            
+            // Generate options
+            const options = [answer];
+            while (options.length < 4) {
+                const randomOption = answer + Math.floor(Math.random() * 5) - 2;
+                if (randomOption !== answer && !options.includes(randomOption) && randomOption > 0) {
+                    options.push(randomOption);
+                }
+            }
+            
+            // Shuffle options
+            options.sort(() => Math.random() - 0.5);
+            
+            return {
+                question,
+                answer,
+                options
+            };
+        }
+
+        // Display the question and options
+        function displayQuestion() {
+            currentQuestion = generateQuestion();
+            questionElement.textContent = currentQuestion.question;
+            
+            optionButtons.forEach((button, index) => {
+                button.textContent = currentQuestion.options[index];
+                button.disabled = false;
+                button.classList.remove('bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+                button.classList.add('bg-blue-100', 'text-blue-800', 'bg-purple-100', 'text-purple-800', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+            });
+        }
+
+        // Start the game
+        function startGame() {
+            score = 0;
+            timeLeft = 30;
+            gameActive = true;
+            
+            scoreElement.textContent = score;
+            timeElement.textContent = timeLeft;
+            startBtn.textContent = 'Playing...';
+            startBtn.disabled = true;
+            
+            displayQuestion();
+            startTimer();
+        }
+
+        // Start the countdown timer
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                timeElement.textContent = timeLeft;
+                progressBar.style.width = `${(timeLeft / 30) * 100}%`;
+                
+                // Change color based on time left
+                if (timeLeft <= 10) {
+                    progressBar.classList.remove('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
+                    progressBar.classList.add('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
+                    timeElement.classList.add('text-red-500');
+                } else {
+                    progressBar.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
+                    progressBar.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
+                    timeElement.classList.remove('text-red-500');
+                }
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        // Handle answer selection
+        function selectAnswer(selectedButton) {
+            if (!gameActive) return;
+            
+            const selectedAnswer = parseInt(selectedButton.textContent);
+            const isCorrect = selectedAnswer === currentQuestion.answer;
+            
+            // Disable all buttons
+            optionButtons.forEach(button => {
+                button.disabled = true;
+            });
+            
+            // Highlight correct and incorrect answers
+            optionButtons.forEach(button => {
+                const buttonAnswer = parseInt(button.textContent);
+                if (buttonAnswer === currentQuestion.answer) {
+                    button.classList.remove('bg-green-100', 'text-green-800');
+                    button.classList.add('bg-green-300', 'text-green-900');
+                } else if (button === selectedButton && !isCorrect) {
+                    button.classList.remove('bg-red-100', 'text-red-800');
+                    button.classList.add('bg-red-300', 'text-red-900');
+                }
+            });
+            
+            // Update score and show feedback
+            if (isCorrect) {
+                score += 10;
+                scoreElement.textContent = score;
+                showFeedback(true);
+            } else {
+                showFeedback(false);
+            }
+        }
+
+        // Show feedback modal
+        function showFeedback(isCorrect) {
+            if (isCorrect) {
+                feedbackIcon.innerHTML = '<i class="fas fa-check-circle text-green-500"></i>';
+                feedbackTitle.textContent = 'Correct!';
+                feedbackText.textContent = 'Great job! Keep it up!';
+                createConfetti();
+            } else {
+                feedbackIcon.innerHTML = '<i class="fas fa-times-circle text-red-500"></i>';
+                feedbackTitle.textContent = 'Incorrect';
+                feedbackText.textContent = `The correct answer was ${currentQuestion.answer}.`;
+            }
+            
+            feedbackModal.classList.remove('hidden');
+            setTimeout(() => {
+                feedbackModal.querySelector('.bg-white').classList.remove('scale-95', 'opacity-0');
+                feedbackModal.querySelector('.bg-white').classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                document.body.appendChild(confetti);
+                
+                // Animate confetti
+                setTimeout(() => {
+                    confetti.style.opacity = '1';
+                    confetti.style.transform = `translateY(${Math.random() * 200 - 100}px) translateX(${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`;
+                    confetti.style.transition = `all ${Math.random() * 2 + 1}s ease-out`;
+                    
+                    // Remove confetti after animation
+                    setTimeout(() => {
+                        confetti.style.opacity = '0';
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 1000);
+                    }, 1000);
+                }, 10);
+            }
+        }
+
+        // Move to next question
+        function nextQuestion() {
+            feedbackModal.querySelector('.bg-white').classList.remove('scale-100', 'opacity-100');
+            feedbackModal.querySelector('.bg-white').classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                feedbackModal.classList.add('hidden');
+                displayQuestion();
+            }, 300);
+        }
+
+        // End the game
+        function endGame() {
+            clearInterval(timer);
+            gameActive = false;
+            finalScoreElement.textContent = score;
+            
+            gameOverModal.classList.remove('hidden');
+            setTimeout(() => {
+                gameOverModal.querySelector('.bg-white').classList.remove('scale-95', 'opacity-0');
+                gameOverModal.querySelector('.bg-white').classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            // Reset UI
+            startBtn.textContent = 'Start Game';
+            startBtn.disabled = false;
+            timeElement.textContent = '30';
+            progressBar.style.width = '100%';
+            progressBar.classList.remove('bg-gradient-to-r', 'from-yellow-400', 'to-red-500');
+            progressBar.classList.add('bg-gradient-to-r', 'from-green-400', 'to-blue-500');
+            timeElement.classList.remove('text-red-500');
+        }
+
+        // Restart the game
+        function restartGame() {
+            gameOverModal.querySelector('.bg-white').classList.remove('scale-100', 'opacity-100');
+            gameOverModal.querySelector('.bg-white').classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                gameOverModal.classList.add('hidden');
+                startGame();
+            }, 300);
+        }
+
+        // Share score
+        function shareScore() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Math Adventure Game',
+                    text: `I scored ${score} points in Math Adventure! Can you beat me?`,
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                });
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                const shareUrl = `https://twitter.com/intent/tweet?text=I scored ${score} points in Math Adventure! Can you beat me?&url=${encodeURIComponent(window.location.href)}`;
+                window.open(shareUrl, '_blank');
+            }
+        }
+    </script>
 </body>
 </html>
